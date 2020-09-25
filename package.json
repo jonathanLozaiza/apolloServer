@@ -1,0 +1,18 @@
+{
+  "name": "crmgraphql",
+  "version": "1.0.0",
+  "description": "apollo server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "author": "jonathan loaiza rosero",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "apollo-server": "^2.18.1"
+  }
+}
