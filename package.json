@@ -13,6 +13,8 @@
     "nodemon": "^2.0.4"
   },
   "dependencies": {
-    "apollo-server": "^2.18.1"
+    "apollo-server": "^2.18.1",
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.10.7"
   }
 }
