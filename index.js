@@ -1,29 +1,12 @@
-const {ApolloServer, gql} = require("apollo-server")
+const {ApolloServer} = require("apollo-server")
+const typeDefs = require('./db/schemas')
+const resolvers = require('./db/resolvers')
 
 //Servidor
-const server = new ApolloServer()
-
-//Schema
-
-const typeDefs = gql`
-
-    type Curso {
-        nombre:String
-        tecnologia:String
-    }
-
-    type Query {
-        obtenerCursos:Curso
-    }
-`
-
-//Resolvers
-
-const resolvers = {
-    Query:{
-        obtenerCursos
-    }
-}
+const server = new ApolloServer({
+    typeDefs,
+    resolvers
+})
 
 
 //Arrancar el servidor
