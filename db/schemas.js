@@ -3,15 +3,19 @@ const {gql} = require("apollo-server")
 //Schema
 const typeDefs = gql`
 
-    type Query {
-        obtenerUsuario(token: String!): Usuario
-    }
-
     type Usuario {
         id:ID
         nombre:String
         apellido:String
         email:String
+        creado:String
+    }
+
+    type Producto{
+        id:ID
+        nombre:String
+        existencia:Int
+        precio:Float
         creado:String
     }
 
@@ -31,9 +35,30 @@ const typeDefs = gql`
         password:String!
     }
 
+    input ProductoInput{
+        nombre:String!
+        existencia:Int!
+        precio:Float!
+    }
+
+    type Query {
+        # Usuarios
+        obtenerUsuario(token: String!): Usuario
+
+        # Producto
+        obtenerProductos: [Producto]
+        obtenerProducto(id: ID!): Producto
+    }
+
     type Mutation {
+        # Usuarios
         nuevoUsuario(input: UsuarioInput): Usuario,
         autenticarUsuario(input: AutenticarUsuario): Token
+
+        # Productos
+        nuevoProducto(input: ProductoInput): Producto
+        actualizarProducto(id: ID!, input: ProductoInput): Producto
+        eliminarProducto(id:ID!):String
     }
 `
 
